@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -21,7 +21,7 @@ namespace Garantia_4.Controllers
         {
 
             string rut_original = Sol_Nrt_Emp.Replace(".", "");
-            string rut_largo = new string('0', 9 - rut_original.Length);
+            //string rut_largo = new string('0', 9 - rut_original.Length);
             //string rut_cliente = rut_largo + Sol_Nrt_Emp;
 
             int rut_busqueda = int.Parse(rut_original);
@@ -937,7 +937,7 @@ namespace Garantia_4.Controllers
             ViewBag.RutEjecutivo = Session["Rut"];
 
             var num_sol = Convert.ToInt32(_CambiaEstadoSolicitud.Sol_Num_Sol);
-            var num_ope = Convert.ToString(_CambiaEstadoSolicitud.Sol_Num_Sol);
+            //var num_ope = Convert.ToString(_CambiaEstadoSolicitud.Sol_Num_Sol);
 
             var _Sol_Num_Sol = num_sol; //_GuardarSolicitud.Sol_Num_Sol;
             //var _Sol_Num_Ope = num_ope; //_GuardarSolicitud.Sol_Num_Ope;
