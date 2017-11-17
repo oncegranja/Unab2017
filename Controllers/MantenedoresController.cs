@@ -22,16 +22,16 @@ namespace Garantia_4.Controllers
 
         public ActionResult MantenedorCTF()
         {
+          
             try
             {
                 return View();
             }
             catch
-            {
-                return RedirectToAction("error", "home");
-
+            {                                                    //'OK - Fix by re-throwing the generic
+                return RedirectToAction("error", "home");       //      exception at the end of the catch block
+                throw;
             }
-
         }
 
         public ActionResult ListaCatastrofeLocalidad()
