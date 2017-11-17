@@ -30,5 +30,14 @@ namespace Garantia_4.Controllers
             ObtTipMonto = new ObtieneDesPyt().ObtieneTipoMonto(TipOpeId);
             return Json(ObtTipMonto, JsonRequestBehavior.AllowGet);
         }
+        
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }        
     }
 }
