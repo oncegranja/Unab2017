@@ -1,0 +1,57 @@
+﻿
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("Razón Social", new { @class = "control-label col-md-3" })
+        <div class="col-md-6">
+            @ViewBag.razon
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Nombre Ejecutivo", new { @class = "control-label col-md-3" })
+        <div class="col-md-8">
+            @ViewBag.Ejecutivo
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Numero IFI", new { @class = "control-label col-md-3" })
+        <div class="col-md-8">
+            @ViewBag.Num_Ifi
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Descarga de Archivo", new { @class = "control-label col-md-3" })
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-12">
+            <a href="@Url.Action("ExportAprobacion", "Listados", new { Sol_id = @ViewBag.Sol_id, rep = 1 })" class="btn btn-success">
+                <i class="fa fa-check-square-o"></i>
+                APROBACIÓN
+            </a>
+            <a href="@Url.Action("ExportAnexo1", "Listados", new { Sol_id = @ViewBag.Sol_id, rep = 2 })" class="btn btn-success">
+                <i class="fa fa-paperclip"></i>
+                ANEXO Nº 1
+            </a>
+            <a href="@Url.Action("ExportAnexo2", "Listados", new { Sol_id = @ViewBag.Sol_id, rep = 3 })" class="btn btn-success">
+                <i class="fa fa-paperclip"></i>
+                ANEXO Nº 2
+            </a>
+            <a href="@Url.Action("ExportDeclaracion", "Listados", new { Sol_id = @ViewBag.Sol_id, rep = 4 })" class="btn btn-success">
+                <i class="fa fa-signing"></i>
+                DECLARACIÓN
+            </a>
+        </div>
+    </div>
+    @if (ViewBag.catastrofe != 1)
+    {
+        <div class="form-group">
+            <div class="col-lg-12">
+                <a href="@Url.Action("ExportCatastrofe", "Listados", new { Sol_id = @ViewBag.Sol_id, rep = 5 })" class="btn btn-success">
+                    <i class="fa fa-tachometer"></i>
+                    DECLARACIÓN CATASTROFE
+                </a>
+            </div>
+        </div>
+    }
+</div>

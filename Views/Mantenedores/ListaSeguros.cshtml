@@ -1,0 +1,60 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <h3 class="panel-title">Listado - Seguros</h3>
+                    </div>
+                    <div class="col col-xs-12 text-right">
+                        <button type="button" id="AddSeg" class="btn btn-success" data-toggle="modal" data-target="#AgregaSeg" data-idseg="0"><i class="glyphicon glyphicon-plus"></i>  Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table id="List_Seg" class="table table-striped table-bordered display" cellspacing="0" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Codigo Seguro</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+
+
+<!-- Modal -->
+<div class="modal fade" id="AgregaSeg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog box-shadow--16dp" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">INGRESO SEGUROS @ViewBag.titulo </h4>
+            </div>
+            <div class="modal-body" id="vista"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="EditaSeg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel1">EDITAR SEGURO </h4>
+            </div>
+            <div class="modal-body" id="vista2"></div>
+        </div>
+    </div>
+</div>

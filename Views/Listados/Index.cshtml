@@ -1,0 +1,27 @@
+﻿@model List<Garantia_4.Models.Customer>
+
+@{
+    ViewBag.Title = "PDF Title";
+
+}
+
+<h2>Convert to  PDF</h2>
+
+<table class="table">
+    <tr>
+        <td class="alert-success">First Name</td>
+        <td class="alert-info">Last name</td>
+   </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+
+            <td>@item.LastName</td>
+          
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Print", "Print", "Listados")

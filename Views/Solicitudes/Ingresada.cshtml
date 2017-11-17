@@ -1,0 +1,83 @@
+﻿<br />
+<br />
+
+@if (ViewBag.etapa == 2)
+{
+    ViewBag.mensaje = "ESTIMADO EJECUTIVO ACABA DE ENVIAR LA SIGUIENTE SOLICITUD";
+    ViewBag.titulo = "SOLICITUD ENVIADA";
+}
+
+@if (ViewBag.etapa == 1)
+{
+    ViewBag.mensaje = "ESTIMADO EJECUTIVO ACABA DE GUARDAR LA SIGUIENTE SOLICITUD";
+    ViewBag.titulo = "SOLICITUD GUARDADA";
+
+}
+
+
+<div class="container col-md-7 col-md-offset-2">
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading">@ViewBag.titulo</div>
+                <div class="panel-body">
+                    <p><h4 class="text-danger"> @ViewBag.mensaje</h4></p>
+                    <br />
+
+                    <div class="form-group">
+                        @Html.Label("Razón Social", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @ViewBag.razon
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Nombre Ejecutivo", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @ViewBag.Ejecutivo
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Numero IFI", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @ViewBag.Num_Ifi
+                        </div>
+                    </div>
+                    @if (ViewBag.etapa == 2)
+                    {
+                        <div class="form-group">
+                            @Html.Label("Descarga de Archivo", new { @class = "control-label col-md-3" })
+                        </div>
+
+                        <div class="form-group center-block">
+                            <div class="col-md-10">
+                                <a href="@Url.Content("~/Listados/ExportAprobacion?Sol_id=")@ViewBag.Sol_id&rep=1" class="btn btn-success">Aprobacion</a>
+                                <a href="@Url.Content("~/Listados/ExportAnexo1?Sol_id=")@ViewBag.Sol_id&rep=2" class="btn btn-success">Anexo Nº 1</a>
+                                <a href="@Url.Content("~/Listados/ExportAnexo2?Sol_id=")@ViewBag.Sol_id&rep=3" class="btn btn-success">Anexo Nº 2</a>
+                                <a href="@Url.Content("~/Listados/ExportDeclaracion?Sol_id=")@ViewBag.Sol_id&rep=4" class="btn btn-success">Declaración</a>
+                                
+                                @if (ViewBag.catastrofe != 1)
+                                {
+                                    <a href="@Url.Content("~/Listados/ExportCatastrofe?Sol_id=")@ViewBag.Sol_id&rep=5" class="btn btn-success">Declaración Catastrofe</a>
+                                }
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group center-block">
+                            <div class="col-md-10">
+                                <a href="@Url.Content("~/Home")" class="btn btn-warning">VOLVER A INICIO</a>
+                            </div>
+                        </div>
+                    } else {
+                        <div class="form-group center-block">
+                            <div class="col-md-10">
+                                <a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=1")" class="btn btn-warning"> VOLVER SOLICITUDES GUARDADAS </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

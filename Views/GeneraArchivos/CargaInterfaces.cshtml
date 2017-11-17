@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Carga Interfaces Sistema Productos";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-horizontal">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">CARGA DE ARCHIVOS - SISTEMA PRODUCTOS</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="container bootstrap snippet col-md-12">
+
+                                @foreach (string nomArchivo in ViewData["listaarchivos"] as string[])
+                                {
+                                    <div class="@Html.Raw(ViewData["existe" + @nomArchivo])">
+                                        <div class="icon">
+                                            <i class="@Html.Raw(ViewData["existe3" + @nomArchivo])"></i>
+                                        </div>
+                                        @Html.Raw(ViewData["existe2" + @nomArchivo])
+                                    </div>
+                                }
+                            </div>
+
+                            @if(ViewBag.valida != '1'){
+                            <div class="col-sm-1">
+                                <a class="btn btn-success btn-sm" href="../GeneraArchivos/CargaArchivos"><i class="fa fa-upload fa-lg" aria-hidden="true"></i>  CARGAR Y CRUZAR</a>
+                            </div>
+                                }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@ViewBag.estadocarga
+
+
+
+@*<h2>List Of Cities</h2>
+        @foreach (string existe in ViewData["existe"] as string[])
+    {
+            @existe
+            <div class="@Html.Raw(@existe)">
+                <div class="icon">
+                    <i class="fa fa-check"></i>
+                </div>
+                @Html.Raw(ViewBag.existe2)
+            </div>
+
+    }*@

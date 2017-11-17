@@ -1,0 +1,152 @@
+﻿<!-- Main component for a primary marketing message or call to action -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="btn-group">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                SELECCIONE OPCIÓN DE BUSQUEDA
+                                 </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#" data-value="RUT CLIENTE" id="b_rutcliente">RUT CLIENTE</a></li>
+                                <li><a href="#" data-value="NUMERO IFI" id="b_numifi">NÚMERO IFI</a></li>
+                                <li><a href="#" data-value="ENTRE FECHA" id="b_fechas">ENTRE FECHA</a></li>
+                                <li><a href="#" data-value="ESTADO" id="b_estados" >ESTADO</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="panel-body">
+                    <fieldset id="f_rutcliente"style="display:none">
+                        <!-- Text input-->
+                        <div class="form-group events">
+                            <label class="col-md-2 control-label" for="f-rut_cliente">RUT CLIENTE</label>
+                            <div class="col-md-2">
+                                <input id="rutcliente_f" name="f-rut_cliente" type="text" placeholder="Rut Cliente" class="form-control camponumerico">
+                                </div>
+                            <div class="col-md-1">
+                                <input id="dvrutcliente_f" name="f-dvrut_cliente" type="text" placeholder="DV Rut Cliente" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button id="f_botonrutcliente" name="f-buttonbusqueda" class="btn btn-primary">Buscar</button>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset id="f_numgarantia" style="display: none">
+                        <div class="form-group events">
+                            <label class="col-md-2 control-label" for="f-numgar">Numero de Garantia</label>
+                            <div class="col-md-2">
+                                <input id="f-numgar" name="f-numgar" type="text" placeholder="Ingrese Numero de Garantia" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button id="f-buttonbusqueda" name="f-buttonbusqueda" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </fieldset>
+                    <fieldset id="f_numifi" style="display: none">
+                        <div class="form-group events">
+                            <label class="col-md-2 control-label" for="f-numifi">NUMERO IFI</label>
+                            <div class="col-md-2">
+                                <input id="f-numifi" name="f-numifi" type="text" placeholder="INGRESE NUMERO IFI" class="form-control camponumerico">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button id="f_botonnumifi" name="f-buttonbusqueda" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </fieldset>
+
+                    <!-- Prepended text-->
+                    <fieldset id="f_fechas" style="display: none">
+                        <div class="form-group events">
+                            <label class="col-md-2 control-label" for="f-fechainicio">FECHA DE INICIO</label>
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                                    <input id="datepicker-busqueda-inicio" name="f-fechainicio" class="form-control" placeholder="" type="text" required="required">
+                                </div>
+
+                            </div>
+                            <label class="col-md-2 control-label" for="f-fechatermino">FECHA DE TERMINO</label>
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                                    <input id="datepicker-busqueda-fin" name="f-fechatermino" class="form-control" placeholder="" type="text" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button id="f_botonfecha" name="f-buttonbusqueda" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </fieldset>
+
+                    <fieldset id="f_estados" style="display: none">
+                        <div class="form-group events">
+                            <label class="col-md-2 control-label" for="f-estado">ESTADO</label>
+                            <div class="col-md-2">
+                                @Html.DropDownList("Est_Sol_Id", null, htmlAttributes: new { @class = "form-control", @required = "required" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button id="f_botonestado" name="f-buttonbusqueda" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title"> Listado de Solicitudes </h3>
+            </div>
+            <div class="panel-body">
+                <table id="ListSolictudes" class="table table-striped table-bordered" cellspacing="0" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Programa</th>
+                            <th>Numero IFI</th>
+                            <th>Fecha Curse</th>
+                            <th>Rut Empresa</th>
+                            <th>Razón Social</th>
+                            <th>Ejecutivo</th>
+                            <th>Estado Solicitud</th>
+                            <th>Etapa Solicitud</th>
+                            <th>Anexos</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+
+<!-- Modal -->
+<div class="modal fade" id="abre_documento" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel1">DESCARGAR DOCUMENTOS </h4>
+            </div>
+            <div class="modal-body" id="vistaanexos"></div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

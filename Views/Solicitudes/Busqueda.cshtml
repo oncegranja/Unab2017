@@ -1,0 +1,373 @@
+﻿@*@model Garantia_4.Models.GuardarSolicitud*@
+
+
+@using (Html.BeginForm("Ingreso", "Solicitudes", FormMethod.Post, new { @id = "Form_sol", @name = "Form_sol" }))
+{
+
+
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+
+                    @*INGRESO RUT CLIENTE*@
+                        @*DATOS CLIENTES*@
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"> <i class="fa fa-inbox fa-2x"></i> DATOS DEL CLIENTE
+                                @Html.Raw(ViewBag.etapa)
+                                @Html.Raw(ViewBag.estado)
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    @Html.Label("NUMERO IFI", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Num_Sol", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                    @Html.Label("Rut Empresa", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Nrt_Emp", new { htmlAttributes = new { @class = "form-control allow_numeric rut_error", @readonly = "readonly" } })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Razón Social", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-7">
+                                        @Html.Editor("Sol_Rzn_Scl", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group" spellcheck="true">
+                                    @Html.Label("Calle", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-7" )>
+                                        @Html.Editor("Sol_Nom_Call", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                    @Html.Label("Número", new { @class = "control-label col-md-1" })
+                                    <div class="col-md-2" )>
+                                        @Html.Editor("Sol_Num_Call", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Complemento Dirección", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10" )>
+                                        @Html.Editor("Sol_Cmn_Dir", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Teléfono", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Tel", new { htmlAttributes = new { @class = "form-control telefono_numeric", @readonly = "readonly" } })
+                                    </div>
+                                    @Html.Label("Correo Electronico", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        @Html.Editor("Sol_Cro_Elt", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Género", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-3">
+                                        @Html.Editor("Gno_Id", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" }})
+                                    </div>
+                                    @Html.Label("Exportador", new { @class = "control-label col-md-1" })
+                                    <div class="col-md-2">
+                                       @*@Html.Editor("Sol_Exp", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+                                        @Html.DropDownList("Sol_Exp", null, htmlAttributes: new { @class = "form-control", @required = "required", disabled = "disabled" })
+                                    </div>
+                                    @Html.Label("Inicio de Actividades", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @*@Html.Editor("Sol_Ina", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+                                        @Html.DropDownList("Sol_Ina", null, htmlAttributes: new { @class = "form-control", @required = "required", disabled = "disabled" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Sector Económico", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10" )>
+                                        @Html.Editor("Sol_Sce", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Clasificación de Riesgo", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Cla_Rie_Id", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                    @Html.Label("Venta Empresa (UF)", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Vnt_Emp", new { htmlAttributes = new { @class = "form-control allow_numeric", @readonly = "readonly" } })
+                                    </div>
+
+                                    @Html.Label("Cobertura Utilizada", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Mnt_Cbt_Utz", new { htmlAttributes = new { @class = "form-control allow_numeric", @readonly = "readonly" } })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    @*DATOS CATASTROFES*@
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><i class="fa fa-question-circle fa-2x"> </i> AFECTO A CATASTROFE</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                @Html.Label("Catastrofe", new { @class = "control-label col-md-1" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Catastrofe", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+
+                                @Html.Label("Región", new { @class = "control-label col-md-1" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Region", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+
+                                @Html.Label("Localización", new { @class = "control-label col-md-1" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Localizacion", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><i class="fa fa-folder-open fa-2x"> </i> DETALLE DE LA OPERACION</div>
+                        <div class="panel-body">
+                            <div class="a_error hide">
+                                <div class="alert alert-danger fade in">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <div class="msg_error"></div>
+                                </div>
+                            </div>
+
+                            @Html.Label("Comisión", new { @class = "control-label col-md-1" })
+                            <div class="col-md-3">
+                                @Html.DropDownList("Comision", null, "Seleccione Opción", htmlAttributes: new { @class = "form-control", @required = "required", disabled = "disabled" })
+                                @*@Html.Editor("Comision", null, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly" } })*@
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Tipo Operación", new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.Editor("Tip_Ope", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+
+                            </div>
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="bg-primary">
+                                            <th>Tipo de Monto</th>
+                                            <th>Montos</th>
+                                            <th>Descripción del Proyecto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @if (ViewBag.mnt_inv > 0){
+                                        <tr class="inversion">
+                                            <td class="col-md-3">
+                                                @Html.Label("Monto Inversión", new { @class = "control-label" })
+                                            </td>
+                                            <td>
+                                                @Html.Editor("mnt_inv", null, new { htmlAttributes = new { @class = "form-control allow_numeric sum-mnt col-md-2", @readonly = "readonly", @oninvalid = "this.setCustomValidity('Ingrese un monto')" } })
+                                            </td>
+                                            <td class="col-md-4">
+                                                @Html.Editor("Des_Proy_Cod_01", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                            </td>
+                                        </tr>
+                                        }
+                                        @if (ViewBag.mnt_cp_tbj > 0) {
+                                        <tr class="capital">
+                                            <td class="col-md-3">
+                                                @Html.Label("Monto Capital de Trabajo", new { @class = "control-label" })
+                                            </td>
+                                            <td class="col-md-2">
+                                                @Html.Editor("mnt_cp_tbj", "mnt_cp_tbj", new { htmlAttributes = new { @class = "form-control allow_numeric sum-mnt ", @readonly = "readonly", @oninvalid = "this.setCustomValidity('Ingrese un monto')" } })
+                                            </td>
+                                            <td class="col-md-4">
+                                                @Html.Editor("Des_Proy_Cod_02", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                            </td>
+                                        </tr>
+                                        }
+                                        @if (ViewBag.mnt_cp_rfn > 0) {
+                                        <tr class="refinanciamiento">
+                                            <td class="col-md-3">
+                                                @Html.Label("Monto Refinanciamiento", new { @class = "control-label", @readonly = "readonly" })
+                                            </td>
+                                            <td class="col-md-2">
+                                                @Html.Editor("mnt_cp_rfn", null, new { htmlAttributes = new { @class = "form-control allow_numeric sum-mnt ", @readonly = "readonly", @oninvalid = "this.setCustomValidity('Ingrese un monto')" } })
+                                            </td>
+                                            <td class="col-md-4">
+                                                @Html.Editor("Des_Proy_Cod_03", null, new { htmlAttributes = new { @class = "form-control" , @readonly = "readonly"} })
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br />
+
+                            <div class="form-group">
+                                @Html.Label("Moneda de Operación", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Tip_Mon_Id", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+
+                                @Html.Label("Monto de Crédito", new { @class = "control-label col-md-3" })
+                                <div class=" col-md-3">
+                                    @Html.Editor("Sol_Mnt_Crd", new { htmlAttributes = new { @class = "form-control allow_numeric ",  @readonly = "readonly", @oninvalid = "this.setCustomValidity('Ingrese un monto')", value = "0" } })
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Fecha de Curse (suscripción pagaré)", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Fec_Cse", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+
+                                @Html.Label("Fecha Primer Vencimiento (Cuota Capital)", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Fec_Vct", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Dólar Observado a Fecha de Curse", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Val_Dol", new { htmlAttributes = new { @class = "form-control allow_numeric ", @readonly = "readonly" } })
+                                </div>
+
+                                @Html.Label("Valor UF Fecha de Curse", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Val_UF", new { htmlAttributes = new { @class = "form-control allow_numeric ", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Tipo de Gracia", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Tip_Grc_Id", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+
+                                @Html.Label("Meses Periodo de Gracia", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Mes_Grc", new { htmlAttributes = new { @class = "form-control allow_numeric", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Frecuencia de Pago", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Fre_Pag_Id", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                                @Html.Label("Número de Cuotas (Cuota solo capital)", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Num_Cuo", new { htmlAttributes = new { @class = "form-control allow_numeric", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.Label("Tipo Tasa de Interés", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Tip_Tas_Int_Cod", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                                @Html.Label("Tasa de Interes Operación (Anual)", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Int_Anl", new { htmlAttributes = new { @class = "form-control allow_numeric ", @readonly = "readonly" } })
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Garantía Adicional 1", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Gar_Adc_Id_01", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                                @Html.Label("Garantía Adicional 2", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Gar_Adc_Id_02", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Seguros Asociados a Crédito", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Seg_Ref_Id_01", null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @*DATOS COMISION COBERTURA*@
+                    <div class="comision">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><i class="fa fa-percent fa-2x"> </i> COMISIÓN Y COBERTURA</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    @Html.Label("Monto Comisión", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Mnt_Cms", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                    @Html.Label("% Cobertura Disponible", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Por_Cbt_Dis", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                    @Html.Label("Monto Cobertura Disponible", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.Editor("Sol_Mnt_Cbt_Dis", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    @*DATOS EJECUTIVOS*@
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><i class="fa fa-user-circle-o fa-2x"> </i> DATOS EJECUTIVO</div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                @Html.Label("Usuario / Ejecutivo", new { @class = "control-label col-md-2" })
+                                <div class="col-md-2">
+                                    @Html.Editor("Sol_Usu_Ejc", new { htmlAttributes = new { @class = "form-control",  @readonly = "readonly" } })
+                                </div>
+
+                                @Html.Label("Oficina", new { @class = "control-label col-md-1" })
+                                <div class="col-md-3">
+                                    @Html.Editor("Sol_Ofi_Cse_Des", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                                @Html.Label("Rut Ejecutivo", new { @class = "control-label col-md-2" })
+                                <div class="col-md-2">
+                                    @Html.Editor("Sol_Rut_Ejc", new { htmlAttributes = new { @class = "form-control",  @readonly = "readonly" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-6">
+                                <label id="aviso"></label>
+                                <button type="button" name="Cancelar_solicitud" onclick="history.go(-1); return true;" value="Volver" class="btn btn-danger">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

@@ -1,0 +1,67 @@
+﻿@{ var estados = @Request.QueryString["estadoGarantia"];
+ var idGarantia = @Request.QueryString["idGarantia"];
+}
+
+@using (Html.BeginForm("InsertaGarantias", "Mantenedores", FormMethod.Post, new { @id = "Form_sol", @name = "Form_sol" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.Label("CODIGO GARANTIA", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-6">
+                @Html.Editor("Gar_Adc_Cod", new { htmlAttributes = new { @class = "form-control Gar_Adc_Cod", @required = "required" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("DESCRIPCION", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-6">
+                @Html.Editor("Gar_Adc_Des", new { htmlAttributes = new { @class = "form-control Gar_Adc_Des", @required = "required" } })
+                @Html.Editor("Gar_Adc_Id", new { htmlAttributes = new { @class = "form-control Gar_Adc_Id", @required = "required", @Value = "0", @style = "display: none" } })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Estado", htmlAttributes: new { @class = "control-label col-md-3" })
+            @if (estados == "1")
+            {
+                <div class="col-md-2 radio">
+                    @Html.RadioButton("Gar_Adc_Est", "1", new { @checked = true })@Html.Label("ACTIVO")
+                </div>
+                <div class="col-md-1 radio">
+                    @Html.RadioButton("Gar_Adc_Est", "0")@Html.Label("INACTIVO")
+                </div>
+
+            }
+            else
+            {
+                <div class="col-md-2 radio">
+                    @Html.RadioButton("Gar_Adc_Est", "1")@Html.Label("ACTIVO")
+                </div>
+                <div class="col-md-1 radio">
+                    @Html.RadioButton("Gar_Adc_Est", "0", new { @checked = true })@Html.Label("INACTIVO")
+                </div>
+            }
+        </div>
+
+
+        <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" data-dismiss="modal" class="btn btn-default">CERRAR </button>
+                @if (estados == null)
+                {
+                    <input type="submit" value="INGRESAR" class="btn btn-primary" />
+                }
+                else
+                {
+                    <input type="submit" value="ACTUALIZA" class="btn btn-primary" />
+                }
+            </div>
+        </div>
+    </div>
+}

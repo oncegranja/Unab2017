@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Generacion";
+}
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-horizontal">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">GENERACIÓN DE REPORTES</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                @Html.Label("GENERA ARCHIVO CORFO", new { htmlAttributes = new { @class = "form-control allow_numeric", required = "required" } })
+                            </div>
+                            <div class="col-sm-1">
+                                <a class="btn btn-success btn-sm" href="../GeneraArchivos/ReporteCorfo"><i class="fa fa-download fa-lg" aria-hidden="true"></i>  Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

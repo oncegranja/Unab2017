@@ -1,0 +1,279 @@
+﻿@model IEnumerable<Garantia_4.Models.GSC_SOL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Nrt_Emp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Drt_Emp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Rzn_Scl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Sce)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Nom_Loc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Nom_Call)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Num_Call)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Vnt_Emp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Mnt_Cbt_Utz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Mnt_Cms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Por_Cbt_Dis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Mnt_Cbt_Dis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Usu_Ejc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Rut_Ejc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Ofi_Cse_Des)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Mnt_Crd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Fec_Cse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Fec_Vct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Val_Dol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Val_UF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Mes_Grc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Int_Anl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Num_Cuo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Num_Sol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Num_Ope)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sol_Fec_Mdf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_CLA_RIE.Cla_Rie_Tip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_EST_CMB.Est_Cmb_Usu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_EST_SOL.Est_Sol_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_ETP_SOL.Etp_Sol_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_FRE_PAG.Fre_Pag_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_GAR_ADC.Gar_Adc_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_GAR_ADC1.Gar_Adc_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_GNO.Gno_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_REL_CTF_COM.Rel_Ctf_Com_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_SEG_REF.Seg_Ref_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_SEG_REF1.Seg_Ref_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_SEG_REF2.Seg_Ref_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_TIP_GRC.Tip_Grc_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_TIP_MON.Tip_Mon_Cod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSC_TIP_OPE.Tip_Ope_Cod)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Nrt_Emp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Drt_Emp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Rzn_Scl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Sce)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Nom_Loc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Nom_Call)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Num_Call)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Vnt_Emp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Mnt_Cbt_Utz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Mnt_Cms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Por_Cbt_Dis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Mnt_Cbt_Dis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Usu_Ejc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Rut_Ejc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Ofi_Cse_Des)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Mnt_Crd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Fec_Cse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Fec_Vct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Val_Dol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Val_UF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Mes_Grc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Int_Anl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Num_Cuo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Num_Sol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Num_Ope)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sol_Fec_Mdf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_CLA_RIE.Cla_Rie_Tip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_EST_CMB.Est_Cmb_Usu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_EST_SOL.Est_Sol_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_ETP_SOL.Etp_Sol_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_FRE_PAG.Fre_Pag_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_GAR_ADC.Gar_Adc_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_GAR_ADC1.Gar_Adc_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_GNO.Gno_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_REL_CTF_COM.Rel_Ctf_Com_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_SEG_REF.Seg_Ref_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_SEG_REF1.Seg_Ref_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_SEG_REF2.Seg_Ref_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_TIP_GRC.Tip_Grc_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_TIP_MON.Tip_Mon_Cod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSC_TIP_OPE.Tip_Ope_Cod)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Sol_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Sol_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Sol_Id })
+        </td>
+    </tr>
+}
+
+</table>

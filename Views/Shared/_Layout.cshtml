@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="Scripts/html5shiv.js"></script>
+      <script src="Scripts/respond.js"></script>
+    <![endif]-->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE8" />
+    <title>@ViewBag.Title - Sistema Ingreso de Solicitudes CORFO</title>
+
+    <script type="text/javascript">
+        function stopRKey(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
+        }
+        document.onkeypress = stopRKey;
+    </script>
+
+    @Scripts.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="@Url.Content("~/Home")" class="navbar-left"><img class="logo_banco_img" src="~/Images/logo-banco-estado.png"></a>
+                    <!-- <a class="navbar-brand" href="#">Solicitudes de Cobertura</a> -->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Content("~/Home")">INICIO</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> SOLICITUDES <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                @if ((int)Session["perfil"] == 4)
+                                {
+                                    <li><a href="@Url.Content("~/Solicitudes/Consulta")">Consultar Solicitud</a></li>
+                                }
+
+                                @if ((int)Session["perfil"] == 1 || (int)Session["perfil"] == 3)
+                                {
+                                    <li><a href="@Url.Content("~/Solicitudes/Consulta")">Consultar Solicitud</a></li>
+                                <!--<li><a href="#">Consultar Solicitud</a></li>-->
+                                    <li>
+                                        <a href="·" class="dropdown-toggle" data-toggle="dropdown">Listar Solicitudes <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=1")">Solicitudes Simuladas</a></li>
+                                            <li><a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=2")">Solicitudes Solicitadas</a></li>
+                                            <li><a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=3")">Solicitudes Cursadas</a></li>
+                                            <li><a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=4")">Pendiente de Carga en CORFO</a></li>
+                                            <li><a href="@Url.Content("~/Listados/VerListados?estado=2")">Solicitudes Anuladas</a></li>
+                                        </ul>
+                                    </li>
+                                }
+
+                                @if ((int)Session["perfil"] == 2 || (int)Session["perfil"] == 3)
+                                {
+                                    if ((int)Session["perfil"] == 3)
+                                    {
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Menú Ejecutivo</a></li>
+                                    }
+                                    <li><a href="@Url.Content("~/Solicitudes/Ingreso")">Ingreso Solicitud</a></li>
+                                    <li><a href="@Url.Content("~/Solicitudes/Consulta")">Consultar Solicitud</a></li>
+                                    <li>
+                                        <a href="·" class="dropdown-toggle" data-toggle="dropdown">Listar Solicitudes <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+
+                                            <li><a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=1")">Solicitudes Simuladas</a></li>
+                                            <li><a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=2")">Solicitudes Solicitadas</a></li>
+                                            <li><a href="@Url.Content("~/Listados/VerListadosEtapa?etapa=3")">Solicitudes Cursadas</a></li>
+                                            <li><a href="@Url.Content("~/Listados/VerListados?estado=2")">Solicitudes Anuladas</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                @*<li><a href="@Url.Content("~/Solicitudes/Consulta")">Consultar Solicitud</a></li>*@
+                            </ul>
+                        </li>
+                        @if ((int)Session["perfil"] == 1 || (int)Session["perfil"] == 3)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GENERAR ARCHIVOS <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Content("~/GeneraArchivos/CargaInterfaces")">Cruzar Información</a></li>
+                                    <li><a href="@Url.Content("~/GeneraArchivos/Generacion")">Generación Archivos</a></li>
+                                </ul>
+                            </li>
+                        }
+
+                    </ul>
+                    @if ((int)Session["perfil"] == 1 || (int)Session["perfil"] == 3)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a tabindex="0" data-toggle="dropdown" data-submenu>
+                                    MANTENEDORES<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="0">Catástrofe</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Content("~/Mantenedores/ListaTipoCatastrofe")" tabindex="0">Ingresar Tipo de Catástrofes</a></li>
+                                            <li><a href="@Url.Content("~/Mantenedores/AgregaCatastrofe")" tabindex="0">Ingresar Localidades</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="0">Clasificación de Riesgo</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Content("~/Mantenedores/ListaClasificacionRiesgo")" tabindex="0">Listar Clasificación Riesgo</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="0">Sector Económico</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Content("~/Mantenedores/ListaSectorEconomico")" tabindex="0">Listar Sector Económico</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="0">Garantías</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Content("~/Mantenedores/ListaGarantias")" tabindex="0">Listar Garantías</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="0">Seguros</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Content("~/Mantenedores/ListaSeguros")" tabindex="0">Listar Seguros</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="0">Tipo de Gracia</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Content("~/Mantenedores/ListaTipoGracia")" tabindex="0">Listar Tipo Gracia</a></li>
+                                        </ul>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+
+
+                </div>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+    <div id="body">
+        <div class="col-md-12 col-lg-12 col-xs-12 center-block">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div style="font-size: .9em">
+                <p class="navbar-text">
+                    <div id="barra_banco"></div>
+                    <img class="user_banco_img" src="~/Images/logo-banco-estado.png" />
+
+                    <div class="user_banco">
+                        <i class="fa fa-user my-icon-footer"></i>@Session["username"]
+                        @* @ViewBag.nombre*@
+                        <br>
+                        <i class="fa fa-home my-icon-footer"></i>@Session["nombreUnidad"]
+                        @*@ViewBag.unidad*@
+                    </div>
+                    <div class="pie_banco"> &copy; @DateTime.Now.Year - Desarrollado por Departamento Proyectos Operacionales</div><br />
+                    <div class="pie_banco"> Sitio web optimizado para Internet Explorer 9, Firefox, Google Chrome. </div>
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="modal fade " id="sinacceso">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">&times;</a>
+                    <div class="h4">CONTROL DE ACCESO</div>
+                </div>
+                <div class="h3">
+                    <span class="h1 glyphicon glyphicon-remove-circle" style="color:red"></span>
+                    ESTIMADO USUARIO: <br />
+                    USTED NO POSEE ACCESO A SITIO,<br />
+                    CONTACTESE CON EL ADMINISTRADOR
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrapjs")
+    @Scripts.Render("~/bundles/sitio")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
