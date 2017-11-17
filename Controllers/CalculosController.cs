@@ -15,20 +15,23 @@ namespace Garantia_4.Controllers
     public class CalculosController : Controller
     {
 
-        public JsonResult Comision(long Num_Sol_Ifi, int Tip_Ope_Cod, float Tas_Anl, int Num_Cuo, decimal Mnt, decimal Val_Dol, decimal Val_UF, int Mon, string Fec_Cse1, string Fec_Prm_Ven1, int Frc_Pag, decimal Nvl_Vnt, decimal Mnt_Cbt_Ocu, float Por_Fjo_Cms)
+         public class CalculosController : Controller
+    {
+
+        public JsonResult Comision(parametrosComision parametrosComision)
         {
 
             Svt_Calculo_Cobertura_Result calculo_cobertura = new Svt_Calculo_Cobertura_Result();
-            calculo_cobertura = new ObtieneComision().Obtiene_Cobertura(Tip_Ope_Cod, Num_Cuo, Mnt, Val_Dol, Val_UF, Mon, Fec_Cse1, Fec_Prm_Ven1, Frc_Pag, Nvl_Vnt, Mnt_Cbt_Ocu);
+            calculo_cobertura = new ObtieneComision().Obtiene_Cobertura(parametrosComision.Tip_Ope_Cod, parametrosComision.Num_Cuo, parametrosComision.Mnt, parametrosComision.Val_Dol, parametrosComision.Val_UF, parametrosComision.Mon, parametrosComision.Fec_Cse1, parametrosComision.Fec_Prm_Ven1, parametrosComision.Frc_Pag, parametrosComision.Nvl_Vnt, parametrosComision.Mnt_Cbt_Ocu);
 
             decimal Por_Cob = Convert.ToDecimal(calculo_cobertura.Porcentaje_Cobertura_Menor_Valor_UF);
             string Re_Cal_Cob = calculo_cobertura.Re_Cal_Cob;
             string Re_Cal_Tip_Ope = calculo_cobertura.Re_Cal_Tip_Ope;
-            var Interes = Tas_Anl;
+            var Interes = parametrosComision.Tas_Anl;
 
 
             Sva_TGSC_CLC_REG_Calculo_Comision_Result calculo_comision = new Sva_TGSC_CLC_REG_Calculo_Comision_Result();
-            calculo_comision = new ObtieneComision().Obtiene_Comision(Num_Sol_Ifi, Tas_Anl, Num_Cuo, Mnt, Val_Dol, Val_UF, Mon, Fec_Cse1, Fec_Prm_Ven1, Frc_Pag, Por_Fjo_Cms, Por_Cob, Re_Cal_Cob, Re_Cal_Tip_Ope);
+            calculo_comision = new ObtieneComision().Obtiene_Comision(parametrosComision.Num_Sol_Ifi, parametrosComision.Tas_Anl, parametrosComision.Num_Cuo, parametrosComision.Mnt, parametrosComision.Val_Dol, parametrosComision.Val_UF, parametrosComision.Mon, parametrosComision.Fec_Cse1, parametrosComision.Fec_Prm_Ven1, parametrosComision.Frc_Pag, parametrosComision.Por_Fjo_Cms, Por_Cob, Re_Cal_Cob, Re_Cal_Tip_Ope);
 
             var Salida_Calculos = new
             {
@@ -40,6 +43,7 @@ namespace Garantia_4.Controllers
 
             return Json(Salida_Calculos, JsonRequestBehavior.AllowGet);
         }
+
 
 
 
