@@ -149,7 +149,7 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult InsertaTipoCatastrofe([Bind(Include = "Ctf_Cod, Ctf_Des, Ctf_Est, Ctf_Rsl")] C_Ctf GuardaCtf)
+        public ActionResult InsertaTipoCatastrofe_2([Bind(Include = "Ctf_Cod, Ctf_Des, Ctf_Est, Ctf_Rsl")] C_Ctf GuardaCtf)
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
             {
