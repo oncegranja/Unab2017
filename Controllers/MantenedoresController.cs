@@ -23,6 +23,7 @@ namespace Garantia_4.Controllers
         public ActionResult MantenedorCTF()
         {
             return View();
+            throw new HttpException(404, "Not found");
         }
 
         public ActionResult ListaCatastrofeLocalidad()
