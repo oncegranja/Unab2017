@@ -72,25 +72,32 @@ namespace Garantia_4.Controllers
         //
         public ActionResult InsertaTipoCatastrofeLoc([Bind(Include = "Ctf_Cod, Ctf_Des, Ctf_Est, Ctf_Rsl")] C_Ctf GuardaCtf)
         {
-            if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
+            try
             {
-                return RedirectToAction("Index", "Home");
+                if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var _Ctf_Cod = GuardaCtf.Ctf_Cod;
+                var _Ctf_Des = GuardaCtf.Ctf_Des;
+                var _Ctf_Est = GuardaCtf.Ctf_Est;
+                var _Ctf_Rsl = GuardaCtf.Ctf_Rsl;
+
+
+                if (ModelState.IsValid)
+                {
+                    Sva_TGSC_CTF_InsertaCatastrofes_Result Guarda_Ctf = new Sva_TGSC_CTF_InsertaCatastrofes_Result();
+                    Guarda_Ctf = new GuardaMantenedores().GuardarCtf(_Ctf_Cod, _Ctf_Des, _Ctf_Est, _Ctf_Rsl);
+                    return RedirectToAction("AgregaCatastrofe");
+                }
+
+                return View(GuardaCtf);
             }
-
-            var _Ctf_Cod = GuardaCtf.Ctf_Cod;
-            var _Ctf_Des = GuardaCtf.Ctf_Des;
-            var _Ctf_Est = GuardaCtf.Ctf_Est;
-            var _Ctf_Rsl = GuardaCtf.Ctf_Rsl;
-
-
-            if (ModelState.IsValid)
+                catch
             {
-                Sva_TGSC_CTF_InsertaCatastrofes_Result Guarda_Ctf = new Sva_TGSC_CTF_InsertaCatastrofes_Result();
-                Guarda_Ctf = new GuardaMantenedores().GuardarCtf(_Ctf_Cod, _Ctf_Des, _Ctf_Est, _Ctf_Rsl);
-                return RedirectToAction("AgregaCatastrofe");
+                    return RedirectToAction("error", "home");
             }
-
-            return View(GuardaCtf);
         }
 
 
