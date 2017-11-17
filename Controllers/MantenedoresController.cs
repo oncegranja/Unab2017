@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -58,11 +58,13 @@ namespace Garantia_4.Controllers
 
         public JsonResult ListaTipoCTFId(int Id_Ctf)
         {
-
+ 
             List<Svc_TGSC_REL_CTF_COM_VerComunaMantenedor_V2_Result> Lista_CTF = new List<Svc_TGSC_REL_CTF_COM_VerComunaMantenedor_V2_Result>();
             Lista_CTF = new ObtieneParametros().Obtiene_Catastrofe_Id(Id_Ctf);
 
             return Json(Lista_CTF, JsonRequestBehavior.AllowGet);
+ 
+
         }
 
 
@@ -241,7 +243,7 @@ namespace Garantia_4.Controllers
         public ActionResult EditaCatastrofe([Bind(Include = "Cod_Ctf, Cantidad_Ctf")] C_EditaCtf eDITACTF)
         {
             var CodCtf = eDITACTF.Cod_Ctf;
-            var Total_Reg = eDITACTF.Cantidad_Ctf;
+            //var Total_Reg = eDITACTF.Cantidad_Ctf;
 
             Svc_TGSC_REL_CTF_COM_VerLocalizacion_Result Detalle_Catastrofe_Loc = new Svc_TGSC_REL_CTF_COM_VerLocalizacion_Result();
             Detalle_Catastrofe_Loc = new ObtieneParametros().Detalle_Catastrofe_Loc(CodCtf);
@@ -272,7 +274,7 @@ namespace Garantia_4.Controllers
         public ActionResult EditaCatastrofe2([Bind(Include = "Cod_Ctf")] C_EditaCtf eDITACTF)
         {
             var CodCtf = eDITACTF.Cod_Ctf;
-            var Total_Reg = eDITACTF.Cantidad_Ctf;
+            //var Total_Reg = eDITACTF.Cantidad_Ctf;
 
             if (ModelState.IsValid)
             {
