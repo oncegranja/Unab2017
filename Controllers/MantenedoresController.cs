@@ -82,7 +82,6 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //
         public ActionResult InsertaTipoCatastrofeLoc([Bind(Include = "Ctf_Cod, Ctf_Des, Ctf_Est, Ctf_Rsl")] C_Ctf GuardaCtf)
         {
             try
@@ -150,7 +149,6 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //
         public ActionResult InsertaTipoCatastrofe([Bind(Include = "Ctf_Cod, Ctf_Des, Ctf_Est, Ctf_Rsl")] C_Ctf GuardaCtf)
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -332,7 +330,6 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //
         public ActionResult InsertaClasificacionRiesgo([Bind(Include = "Cla_Rie_Id, Cla_Rie_Tip, Cla_Rie_Por_Pvs, Cla_Rie_Est")] C_ClaRie _GuardaClaRie)
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -396,7 +393,6 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //
         public ActionResult InsertaSectorEconomico([Bind(Include = "Sce_Id, Sce_Cod, Sce_Des, Sce_Est")] C_SecEco _GuardaSecEco)
         {
 
@@ -465,7 +461,6 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //
         public ActionResult InsertaGarantias([Bind(Include = "Gar_Adc_Id, Gar_Adc_Cod, Gar_Adc_Des, Gar_Adc_Est")] C_Garantia _GuardaGarantia)
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -530,7 +525,6 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //
         public ActionResult InsertaSeguro([Bind(Include = "Seg_Ref_Id, Seg_Ref_Cod, Seg_Ref_Des, Seg_Ref_Est")] C_Seguro _GuardaGarantia)
         {
 
@@ -599,7 +593,6 @@ namespace Garantia_4.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //
         public ActionResult InsertaTipoGracia([Bind(Include = "Tip_Grc_Id, Tip_Grc_Des, Tip_Grc_Est")] C_TipGra _GuardaTipGra)
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
