@@ -36,12 +36,23 @@ namespace Garantia_4.Controllers
 
         public ActionResult ListaCatastrofeLocalidad()
         {
+
+            try { 
+            
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
             {
                 return RedirectToAction("Index", "Home");
             }
 
             return View();
+
+                }
+                catch
+                {
+                    return RedirectToAction("error", "home");       //      exception at the end of the catch block
+                    throw;
+            }
+
         }
 
 
