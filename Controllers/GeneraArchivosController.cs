@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -150,7 +150,7 @@ namespace Garantia_4.Controllers
                 sb.Append("\t");
                 sb.AppendLine();
                 }
-            System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+            //System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
             Encoding encoding = Encoding.UTF8;
             Response.ClearContent();
             Response.Buffer = true;
@@ -200,7 +200,7 @@ namespace Garantia_4.Controllers
             {
                 ViewData["listaarchivos"] = archivos;
 
-                var resp_sistema = obtienearchivos[i].estado;
+                //var resp_sistema = obtienearchivos[i].estado;
                 var nombrecampo = "existe" + obtienearchivos[i].sistema;
                 var nombrecampo2 = "existe2" + obtienearchivos[i].sistema;
                 var nombrecampo3 = "existe3" + obtienearchivos[i].sistema;
