@@ -626,6 +626,14 @@ namespace Garantia_4.Controllers
             }
             base.Dispose(disposing);
         }
+        
+        
+            protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            Server.ClearError();
+            Response.Redirect("/Home/Error");
+        }
     }
 }
 
