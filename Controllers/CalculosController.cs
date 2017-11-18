@@ -15,6 +15,7 @@ namespace Garantia_4.Controllers
     public class CalculosController : Controller
     {
 
+        [HandleError()]
          public class CalculosController : Controller
     {
 
