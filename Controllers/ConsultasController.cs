@@ -15,6 +15,7 @@ namespace Garantia_4.Controllers
     public class ConsultasController : Controller
     {
         // GET: Consultas
+        [HandleError()]
         public ActionResult Index()
         {
 
