@@ -1,4 +1,4 @@
-    using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,11 +12,12 @@ using Garantia_4.Funciones;
 
 namespace Garantia_4.Controllers
 {
+    
     public class SolicitudesController : Controller 
     {
         private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
 
-
+        [HandleError()]
         public JsonResult DatosClientes(string Sol_Nrt_Emp, string Sol_Drt_Emp)
         {
 
