@@ -15,6 +15,7 @@ namespace Garantia_4.Controllers
     public class ValidaUsuarioController : Controller
     {
         // GET: ValidaUsuario
+        [HandleError()]
         public ActionResult Index(string login)
         {
 
