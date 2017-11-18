@@ -19,19 +19,20 @@ namespace Garantia_4.Controllers
 
 
         // GET: Catastrofes
-
+        [HandleError()]
         public ActionResult MantenedorCTF()
         {
           
-            try
-            {
+            //try
+            //{
                 return View();
-            }
-            catch
-            {                                                    //'OK - Fix by re-throwing the generic
+            //}
+            //catch
+            //{                                                    //'OK - Fix by re-throwing the generic
                 return RedirectToAction("error", "home");       //      exception at the end of the catch block
-                throw;
-            }
+                //throw;
+                throw new Exception("test");
+            //}
         }
 
         public ActionResult ListaCatastrofeLocalidad()
@@ -626,14 +627,7 @@ namespace Garantia_4.Controllers
             }
             base.Dispose(disposing);
         }
-        
-        
-            protected void Application_Error(object sender, EventArgs e)
-        {
-            Exception exception = Server.GetLastError();
-            Server.ClearError();
-            Response.Redirect("/Home/Error");
-        }
+     
     }
 }
 
