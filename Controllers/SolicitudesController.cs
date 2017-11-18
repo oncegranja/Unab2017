@@ -22,16 +22,15 @@ namespace Garantia_4.Controllers
         {
 
             string rut_original = Sol_Nrt_Emp.Replace(".", "");
+            string dv_original = Sol_Drt_Emp.Replace(".", "");
+            
             //string rut_largo = new string('0', 9 - rut_original.Length);
             //string rut_cliente = rut_largo + Sol_Nrt_Emp;
 
             int rut_busqueda = int.Parse(rut_original);
-
-
+            
             //Svc_tbcc_cli_VerCliente_Result usuario = new Svc_tbcc_cli_VerCliente_Result();
-
             var SalDatosCliente = new ObtieneCliente().Obtiene_cliente(rut_busqueda);
-
 
             return Json(SalDatosCliente, JsonRequestBehavior.AllowGet);
         }
