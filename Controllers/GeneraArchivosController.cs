@@ -18,6 +18,7 @@ namespace Garantia_4.Controllers
     public class GeneraArchivosController : Controller
     {
         // GET: Informes
+        [HandleError()]
         public ActionResult Generacion()
         {
 
