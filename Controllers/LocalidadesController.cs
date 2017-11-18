@@ -14,6 +14,7 @@ namespace Garantia_4.Controllers
     {
         private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
 
+        [HandleError()]
         public JsonResult ListRegiones(int Ctf_Cod)
         {
             List<Svc_TGSC_REL_CTF_COM_VerRegion_Result> ListaRegiones = new List<Svc_TGSC_REL_CTF_COM_VerRegion_Result>();
