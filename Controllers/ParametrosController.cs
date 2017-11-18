@@ -16,6 +16,7 @@ namespace Garantia_4.Controllers
         private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
 
         // GET: Proyectos
+        [HandleError()]
         public JsonResult ListOperacion(string TipOpeCms)
         {
             List<Svc_TGSC_TIP_OPE_VerOperacion_Result> ListaOperaciones = new List<Svc_TGSC_TIP_OPE_VerOperacion_Result>();
