@@ -19,7 +19,8 @@ namespace Garantia_4.Controllers
     {
         private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
         // GET: Listados
-            
+        
+        [HandleError()]            
         public ActionResult VerListados()
         {
             var acceso = Session["perfil"];
