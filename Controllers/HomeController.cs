@@ -14,7 +14,7 @@ namespace Garantia_4.Controllers
 {
     public class HomeController : Controller
     {
-
+        [HandleError()]
         public ActionResult Index()
            {
             utlidades.NomUser(@User.Identity.Name);
