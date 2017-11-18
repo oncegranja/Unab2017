@@ -37,22 +37,15 @@ namespace Garantia_4.Controllers
 
         public ActionResult ListaCatastrofeLocalidad()
         {
-
-            try { 
-            
+          
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
             {
                 return RedirectToAction("Index", "Home");
             }
 
             return View();
-
-                }
-                catch
-                {
-                    return RedirectToAction("error", "home");       //      exception at the end of the catch block
-                    throw;
-            }
+            
+            throw new Exception("test");
 
         }
 
@@ -64,8 +57,9 @@ namespace Garantia_4.Controllers
             Lista_CTF = new ObtieneParametros().Obtiene_Catastrofe_Id(Id_Ctf);
 
             return Json(Lista_CTF, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
  
-
         }
 
 
@@ -79,14 +73,14 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
+            
+            throw new Exception("test");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult InsertaTipoCatastrofeLoc([Bind(Include = "Ctf_Cod, Ctf_Des, Ctf_Est, Ctf_Rsl")] C_Ctf GuardaCtf)
         {
-            try
-            {
                 if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
                 {
                     return RedirectToAction("Index", "Home");
@@ -106,11 +100,9 @@ namespace Garantia_4.Controllers
                 }
 
                 return View(GuardaCtf);
-            }
-                catch
-            {
-                    return RedirectToAction("error", "home");
-            }
+                
+                throw new Exception("test");
+
         }
 
 
@@ -132,6 +124,8 @@ namespace Garantia_4.Controllers
             Lista_CTF = new ObtieneParametros().obtiene_catastrofe_02();
 
             return Json(Lista_CTF, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -146,6 +140,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
+            
+            throw new Exception("test");
         }
 
         [HttpPost]
@@ -171,6 +167,8 @@ namespace Garantia_4.Controllers
             }
 
             return View(GuardaCtf);
+            
+            throw new Exception("test");
         }
 
 
@@ -181,6 +179,8 @@ namespace Garantia_4.Controllers
             Ver_Catastrofe = new ObtieneParametros().obtiene_catastrofe_Mant();
 
             return Json(Ver_Catastrofe, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -203,6 +203,8 @@ namespace Garantia_4.Controllers
             ViewBag.M_Comuna = new SelectList(db.TGSC_COM, "Com_Cod", "Com_Nom");
 
             return View();
+            
+            throw new Exception("test");
         }
 
 
@@ -235,6 +237,8 @@ namespace Garantia_4.Controllers
             ViewBag.Ctf_Id = new SelectList(db.TGSC_CTF, "Ctf_Cod", "Ctf_Cod", tGSC_REL_CTF_COM.Ctf_Cod);
             
             return View(tGSC_REL_CTF_COM);
+            
+            throw new Exception("test");
         }
 
 
@@ -264,6 +268,8 @@ namespace Garantia_4.Controllers
             }
        
             return PartialView();
+            
+            throw new Exception("test");
         }
 
 
@@ -283,6 +289,8 @@ namespace Garantia_4.Controllers
             }
 
             return PartialView();
+            
+            throw new Exception("test");
         }
             
 
@@ -292,6 +300,8 @@ namespace Garantia_4.Controllers
             List<Svc_TGSC_RGN_VerComunas_Result> ListaComuna = new List<Svc_TGSC_RGN_VerComunas_Result>();
             ListaComuna = new ObtieneParametros().Obtiene_Comuna(Reg_id);
             return Json(ListaComuna, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -304,6 +314,8 @@ namespace Garantia_4.Controllers
             }
 
             return View();
+            
+            throw new Exception("test");
         }
 
 
@@ -313,6 +325,8 @@ namespace Garantia_4.Controllers
             Lista_Cla_Rie = new ObtieneParametros().Obtiene_Cla_Rie_02();
 
             return Json(Lista_Cla_Rie, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -326,6 +340,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
+            
+            throw new Exception("test");
         }
 
 
@@ -352,6 +368,8 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaClaRie);
+            
+            throw new Exception("test");
         }
 
 
@@ -366,6 +384,8 @@ namespace Garantia_4.Controllers
             }
 
             return View();
+            
+            throw new Exception("test");
         }
 
 
@@ -376,6 +396,8 @@ namespace Garantia_4.Controllers
             Lista_Sec_Eco = new ObtieneParametros().obtiene_Sec_Eco_02();
 
             return Json(Lista_Sec_Eco, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -389,6 +411,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
+            
+            throw new Exception("test");
         }
 
 
@@ -416,6 +440,8 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaSecEco);
+            
+            throw new Exception("test");
         }
 
         // FIN SECTOR ECONOMICO
@@ -431,6 +457,8 @@ namespace Garantia_4.Controllers
             }
 
             return View();
+            
+            throw new Exception("test");
         }
 
 
@@ -440,6 +468,8 @@ namespace Garantia_4.Controllers
             Lista_Gar = new ObtieneParametros().Obtiene_Gar_Adc_02();
 
             return Json(Lista_Gar, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -456,6 +486,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
+            
+            throw new Exception("test");
         }
 
 
@@ -483,6 +515,8 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaGarantia);
+            
+            throw new Exception("test");
         }
 
         // FIN GARANTIA
@@ -498,6 +532,8 @@ namespace Garantia_4.Controllers
             }
 
             return View();
+            
+            throw new Exception("test");
         }
 
 
@@ -508,6 +544,8 @@ namespace Garantia_4.Controllers
             Lista_Seg = new ObtieneParametros().Obtiene_Des_Seg_02();
 
             return Json(Lista_Seg, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -521,6 +559,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
+            
+            throw new Exception("test");
         }
 
 
@@ -549,6 +589,8 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaGarantia);
+            
+            throw new Exception("test");
         }
 
 
@@ -565,6 +607,8 @@ namespace Garantia_4.Controllers
             }
 
             return View();
+            
+            throw new Exception("test");
         }
 
         
@@ -575,6 +619,8 @@ namespace Garantia_4.Controllers
             Lista_Tip_Grc = new ObtieneParametros().Obtiene_Tip_Grc_02();
 
             return Json(Lista_Tip_Grc, JsonRequestBehavior.AllowGet);
+            
+            throw new Exception("test");
         }
 
 
@@ -589,6 +635,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
+            
+            throw new Exception("test");
         }
 
 
@@ -614,6 +662,7 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaTipGra);
+            throw new Exception("test");
         }
 
 
