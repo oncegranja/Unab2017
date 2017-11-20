@@ -214,6 +214,8 @@ namespace Garantia_4.Controllers
 
         }
 
+
+        [HttpGet]
         public ActionResult Busqueda()
         {
             return View();
