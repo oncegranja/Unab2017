@@ -20,46 +20,33 @@ namespace Garantia_4.Controllers
 
         // GET: Catastrofes
         [HandleError()]
+        [ValidateAntiForgeryToken]
         public ActionResult MantenedorCTF()
         {
-          
-            //try
-            //{
-                return View();
-            //}
-            //catch
-            //{                                                    //'OK - Fix by re-throwing the generic
-                //return RedirectToAction("error", "home");       //      exception at the end of the catch block
-                //throw;
-               // throw new Exception("test");
-            //}
+            return View();
         }
 
         public ActionResult ListaCatastrofeLocalidad()
         {
-          
+
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
             {
                 return RedirectToAction("Index", "Home");
             }
 
             return View();
-            
-            //throw new Exception("test");
 
         }
 
 
         public JsonResult ListaTipoCTFId(int Id_Ctf)
         {
- 
+
             List<Svc_TGSC_REL_CTF_COM_VerComunaMantenedor_V2_Result> Lista_CTF = new List<Svc_TGSC_REL_CTF_COM_VerComunaMantenedor_V2_Result>();
             Lista_CTF = new ObtieneParametros().Obtiene_Catastrofe_Id(Id_Ctf);
 
             return Json(Lista_CTF, JsonRequestBehavior.AllowGet);
-            
-           //throw new Exception("test");
- 
+
         }
 
 
@@ -73,35 +60,35 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
-            
-            //throw new Exception("test");
+
+
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult InsertaTipoCatastrofeLoc([Bind(Include = "Ctf_Cod, Ctf_Des, Ctf_Est, Ctf_Rsl")] C_Ctf GuardaCtf)
         {
-                if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
+            if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
-                var _Ctf_Cod = GuardaCtf.Ctf_Cod;
-                var _Ctf_Des = GuardaCtf.Ctf_Des;
-                var _Ctf_Est = GuardaCtf.Ctf_Est;
-                var _Ctf_Rsl = GuardaCtf.Ctf_Rsl;
+            var _Ctf_Cod = GuardaCtf.Ctf_Cod;
+            var _Ctf_Des = GuardaCtf.Ctf_Des;
+            var _Ctf_Est = GuardaCtf.Ctf_Est;
+            var _Ctf_Rsl = GuardaCtf.Ctf_Rsl;
 
 
-                if (ModelState.IsValid)
-                {
-                    Sva_TGSC_CTF_InsertaCatastrofes_Result Guarda_Ctf = new Sva_TGSC_CTF_InsertaCatastrofes_Result();
-                    Guarda_Ctf = new GuardaMantenedores().GuardarCtf(_Ctf_Cod, _Ctf_Des, _Ctf_Est, _Ctf_Rsl);
-                    return RedirectToAction("AgregaCatastrofe");
-                }
+            if (ModelState.IsValid)
+            {
+                Sva_TGSC_CTF_InsertaCatastrofes_Result Guarda_Ctf = new Sva_TGSC_CTF_InsertaCatastrofes_Result();
+                Guarda_Ctf = new GuardaMantenedores().GuardarCtf(_Ctf_Cod, _Ctf_Des, _Ctf_Est, _Ctf_Rsl);
+                return RedirectToAction("AgregaCatastrofe");
+            }
 
-                return View(GuardaCtf);
-                
-                //throw new Exception("test");
+            return View(GuardaCtf);
+
+
 
         }
 
@@ -124,8 +111,6 @@ namespace Garantia_4.Controllers
             Lista_CTF = new ObtieneParametros().obtiene_catastrofe_02();
 
             return Json(Lista_CTF, JsonRequestBehavior.AllowGet);
-            
-           //  throw new Exception("test");
         }
 
 
@@ -140,8 +125,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
-            
-            //throw new Exception("test");
+
+
         }
 
         [HttpPost]
@@ -167,8 +152,7 @@ namespace Garantia_4.Controllers
             }
 
             return View(GuardaCtf);
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -179,8 +163,8 @@ namespace Garantia_4.Controllers
             Ver_Catastrofe = new ObtieneParametros().obtiene_catastrofe_Mant();
 
             return Json(Ver_Catastrofe, JsonRequestBehavior.AllowGet);
-            
-            //throw new Exception("test");
+
+
         }
 
 
@@ -192,8 +176,6 @@ namespace Garantia_4.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-
-            //string Ctf_Est = "1";
             List<Svc_TGSC_CTF_VerCatastrofe_Result> ListaCatastrofe = new List<Svc_TGSC_CTF_VerCatastrofe_Result>();
             ListaCatastrofe = new ObtieneCatastrofe().obtiene_catastrofe(Constantes.numUno);
             ViewBag.M_Catastrofe = new SelectList(ListaCatastrofe, "Ctf_Cod", "Ctf_Des");
@@ -203,8 +185,7 @@ namespace Garantia_4.Controllers
             ViewBag.M_Comuna = new SelectList(db.TGSC_COM, "Com_Cod", "Com_Nom");
 
             return View();
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -220,25 +201,21 @@ namespace Garantia_4.Controllers
 
             var Com_Cod = tGSC_REL_CTF_COM.Com_Cod;
             var Ctf_Cod = tGSC_REL_CTF_COM.Ctf_Cod;
-            //var Estado_CTF = "1";
 
             if (ModelState.IsValid)
             {
-                
+
 
                 Sva_TGSC_REL_CTF_COM_InsertaCatastrofes_Result Guarda_Catastrofe = new Sva_TGSC_REL_CTF_COM_InsertaCatastrofes_Result();
                 Guarda_Catastrofe = new GuardaCatastrofe().Guarda_Catastrofe(Com_Cod, Ctf_Cod, Constantes.numUno);
-                //return RedirectToAction("Index");
-                //var valor_moneda = 1;
                 return Json(Constantes.digitoUno, JsonRequestBehavior.AllowGet);
             }
 
             ViewBag.Com_Id = new SelectList(db.TGSC_COM, "Com_Cod", "Com_Cod", tGSC_REL_CTF_COM.Com_Cod);
             ViewBag.Ctf_Id = new SelectList(db.TGSC_CTF, "Ctf_Cod", "Ctf_Cod", tGSC_REL_CTF_COM.Ctf_Cod);
-            
+
             return View(tGSC_REL_CTF_COM);
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -266,10 +243,9 @@ namespace Garantia_4.Controllers
             {
                 ViewBag.Observaciones = Constantes.mensajeCatastrofeEstado;
             }
-       
+
             return PartialView();
-            
-          //  throw new Exception("test");
+
         }
 
 
@@ -289,10 +265,9 @@ namespace Garantia_4.Controllers
             }
 
             return PartialView();
-            
-           // throw new Exception("test");
+
         }
-            
+
 
 
         public JsonResult ListaComunas(int Reg_id)
@@ -300,8 +275,7 @@ namespace Garantia_4.Controllers
             List<Svc_TGSC_RGN_VerComunas_Result> ListaComuna = new List<Svc_TGSC_RGN_VerComunas_Result>();
             ListaComuna = new ObtieneParametros().Obtiene_Comuna(Reg_id);
             return Json(ListaComuna, JsonRequestBehavior.AllowGet);
-            
-         //   throw new Exception("test");
+
         }
 
 
@@ -314,9 +288,9 @@ namespace Garantia_4.Controllers
             }
 
             return View();
-            
-          //  throw new Exception("test");
+
         }
+
 
 
         public JsonResult ListaClaRie()
@@ -325,8 +299,7 @@ namespace Garantia_4.Controllers
             Lista_Cla_Rie = new ObtieneParametros().Obtiene_Cla_Rie_02();
 
             return Json(Lista_Cla_Rie, JsonRequestBehavior.AllowGet);
-            
-          //  throw new Exception("test");
+
         }
 
 
@@ -340,8 +313,8 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
-            
-            //throw new Exception("test");
+
+
         }
 
 
@@ -368,8 +341,7 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaClaRie);
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -384,8 +356,7 @@ namespace Garantia_4.Controllers
             }
 
             return View();
-            
-          //  throw new Exception("test");
+
         }
 
 
@@ -396,8 +367,7 @@ namespace Garantia_4.Controllers
             Lista_Sec_Eco = new ObtieneParametros().obtiene_Sec_Eco_02();
 
             return Json(Lista_Sec_Eco, JsonRequestBehavior.AllowGet);
-            
-          //  throw new Exception("test");
+
         }
 
 
@@ -411,8 +381,7 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -440,8 +409,7 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaSecEco);
-            
-          //  throw new Exception("test");
+
         }
 
         // FIN SECTOR ECONOMICO
@@ -457,8 +425,7 @@ namespace Garantia_4.Controllers
             }
 
             return View();
-            
-          //  throw new Exception("test");
+
         }
 
 
@@ -468,8 +435,7 @@ namespace Garantia_4.Controllers
             Lista_Gar = new ObtieneParametros().Obtiene_Gar_Adc_02();
 
             return Json(Lista_Gar, JsonRequestBehavior.AllowGet);
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -486,8 +452,7 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
-            
-         //   throw new Exception("test");
+
         }
 
 
@@ -515,8 +480,7 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaGarantia);
-            
-           // throw new Exception("test");
+
         }
 
         // FIN GARANTIA
@@ -532,8 +496,7 @@ namespace Garantia_4.Controllers
             }
 
             return View();
-            
-         //   throw new Exception("test");
+
         }
 
 
@@ -544,8 +507,7 @@ namespace Garantia_4.Controllers
             Lista_Seg = new ObtieneParametros().Obtiene_Des_Seg_02();
 
             return Json(Lista_Seg, JsonRequestBehavior.AllowGet);
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -559,8 +521,7 @@ namespace Garantia_4.Controllers
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -589,8 +550,8 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaGarantia);
-            
-            //throw new Exception("test");
+
+
         }
 
 
@@ -607,11 +568,10 @@ namespace Garantia_4.Controllers
             }
 
             return View();
-            
-          //  throw new Exception("test");
+
         }
 
-        
+
         public JsonResult ListaTipGra()
         {
 
@@ -619,8 +579,8 @@ namespace Garantia_4.Controllers
             Lista_Tip_Grc = new ObtieneParametros().Obtiene_Tip_Grc_02();
 
             return Json(Lista_Tip_Grc, JsonRequestBehavior.AllowGet);
-            
-            //throw new Exception("test");
+
+
         }
 
 
@@ -630,13 +590,11 @@ namespace Garantia_4.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            
 
             ViewBag.estadoctf = Constantes.numUno;
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
-            
-           // throw new Exception("test");
+
         }
 
 
@@ -662,7 +620,6 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaTipGra);
-           // throw new Exception("test");
         }
 
 
@@ -676,7 +633,7 @@ namespace Garantia_4.Controllers
             }
             base.Dispose(disposing);
         }
-     
+
     }
 }
 
