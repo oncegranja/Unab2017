@@ -125,7 +125,7 @@ namespace Garantia_4.Controllers
 
             return Json(Lista_CTF, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+           //  throw new Exception("test");
         }
 
 
@@ -180,7 +180,7 @@ namespace Garantia_4.Controllers
 
             return Json(Ver_Catastrofe, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+            //throw new Exception("test");
         }
 
 
@@ -301,7 +301,7 @@ namespace Garantia_4.Controllers
             ListaComuna = new ObtieneParametros().Obtiene_Comuna(Reg_id);
             return Json(ListaComuna, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+         //   throw new Exception("test");
         }
 
 
@@ -326,7 +326,7 @@ namespace Garantia_4.Controllers
 
             return Json(Lista_Cla_Rie, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
 
@@ -385,7 +385,7 @@ namespace Garantia_4.Controllers
 
             return View();
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
 
@@ -458,7 +458,7 @@ namespace Garantia_4.Controllers
 
             return View();
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
 
@@ -487,7 +487,7 @@ namespace Garantia_4.Controllers
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
             
-            throw new Exception("test");
+         //   throw new Exception("test");
         }
 
 
@@ -533,7 +533,7 @@ namespace Garantia_4.Controllers
 
             return View();
             
-            throw new Exception("test");
+         //   throw new Exception("test");
         }
 
 
@@ -608,7 +608,7 @@ namespace Garantia_4.Controllers
 
             return View();
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
         
@@ -636,7 +636,7 @@ namespace Garantia_4.Controllers
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
