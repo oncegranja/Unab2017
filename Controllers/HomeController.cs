@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -14,7 +14,11 @@ namespace Garantia_4.Controllers
 {
     public class HomeController : Controller
     {
+
         [HandleError()]
+
+
+        [HttpGet]
         public ActionResult Index()
            {
             utlidades.NomUser(@User.Identity.Name);
@@ -33,7 +37,7 @@ namespace Garantia_4.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public JsonResult Dashboard()
         {
 
