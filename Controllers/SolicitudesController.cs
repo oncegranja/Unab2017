@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,29 +12,32 @@ using Garantia_4.Funciones;
 
 namespace Garantia_4.Controllers
 {
-    
     public class SolicitudesController : Controller 
     {
-        private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
+        //private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
 
         [HandleError()]
+
+        [HttpGet]
         public JsonResult DatosClientes(string Sol_Nrt_Emp, string Sol_Drt_Emp)
         {
 
             string rut_original = Sol_Nrt_Emp.Replace(".", "");
-            string dv_original = Sol_Drt_Emp.Replace(".", "");
-            
             //string rut_largo = new string('0', 9 - rut_original.Length);
             //string rut_cliente = rut_largo + Sol_Nrt_Emp;
 
             int rut_busqueda = int.Parse(rut_original);
-            
+
+
             //Svc_tbcc_cli_VerCliente_Result usuario = new Svc_tbcc_cli_VerCliente_Result();
+
             var SalDatosCliente = new ObtieneCliente().Obtiene_cliente(rut_busqueda);
+
 
             return Json(SalDatosCliente, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public ActionResult Ingreso()
         {
 
@@ -305,7 +308,7 @@ namespace Garantia_4.Controllers
             return View(_GuardarSolicitud);
         }
 
-
+        [HttpGet]
         public ActionResult Ingresada(int id_ifi)
         {
 
@@ -342,11 +345,11 @@ namespace Garantia_4.Controllers
         }
 
 
-      
 
 
 
-        // GET: Solicitudes/Edit/5
+
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
@@ -750,16 +753,15 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult EditResp()
         {
-
-
           return PartialView();
         }
 
 
 
+        [HttpGet]
         public ActionResult CambiaEstado(int id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
@@ -957,17 +959,15 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult EstadoResp()
         {
-
-
             return PartialView();
         }
 
 
 
-
+        [HttpGet]
         public ActionResult Busqueda(int id)
         {
 
@@ -1105,7 +1105,7 @@ namespace Garantia_4.Controllers
             return View(Solicitud);
         }
 
-
+        [HttpGet]
         public ActionResult AbreSolicitud(int id)
         {
 
@@ -1570,15 +1570,5 @@ namespace Garantia_4.Controllers
             return View();
         }
 
-
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }
