@@ -755,7 +755,7 @@ namespace Garantia_4.Controllers
           return PartialView();
         }
 
-
+        [HttpGet]
         public ActionResult CambiaEstado(int id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
@@ -957,7 +957,8 @@ namespace Garantia_4.Controllers
             return PartialView();
         }
 
-        
+
+        [HttpGet]
         public ActionResult Busqueda(int id)
         {
 
@@ -1095,7 +1096,7 @@ namespace Garantia_4.Controllers
             return View(Solicitud);
         }
 
-        
+        [HttpGet]
         public ActionResult AbreSolicitud(int id)
         {
 
@@ -1530,7 +1531,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult Consulta()
         {
 
