@@ -345,7 +345,7 @@ namespace Garantia_4.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
