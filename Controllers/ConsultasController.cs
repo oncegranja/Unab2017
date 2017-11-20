@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -14,14 +14,15 @@ namespace Garantia_4.Controllers
 {
     public class ConsultasController : Controller
     {
-        // GET: Consultas
         [HandleError()]
+
+        [HttpGet]
         public ActionResult Index()
         {
 
             return View();
         }
-
+        [HttpGet]
         public JsonResult ListSolicitudesRutCli(int rut)
         {
             var usr_lgn_pfl = "";
@@ -42,7 +43,7 @@ namespace Garantia_4.Controllers
             return Json(ListaSolicitudes, JsonRequestBehavior.AllowGet);
         }
 
-
+        [HttpGet]
         public JsonResult ListSolicitudesIfi(int ifi)
         {
             var usr_lgn_pfl = "";
@@ -62,7 +63,7 @@ namespace Garantia_4.Controllers
             return Json(ListaSolicitudes, JsonRequestBehavior.AllowGet);
         }
 
-
+        [HttpGet]
         public JsonResult ListSolicitudesFecha(DateTime fecha1, DateTime fecha2)
         {
             var usr_lgn_pfl = "";
@@ -81,7 +82,7 @@ namespace Garantia_4.Controllers
             return Json(ListaSolicitudesFecha, JsonRequestBehavior.AllowGet);
         }
 
-
+        [HttpGet]
         public JsonResult ListSolicitudesEstado(int Estado)
         {
             var usr_lgn_pfl = "";
