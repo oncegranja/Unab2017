@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,9 +12,9 @@ namespace Garantia_4.Controllers
 {
     public class LocalidadesController : Controller
     {
-        private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
+        //private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
 
-        [HandleError()]
+        [HttpGet]
         public JsonResult ListRegiones(int Ctf_Cod)
         {
             List<Svc_TGSC_REL_CTF_COM_VerRegion_Result> ListaRegiones = new List<Svc_TGSC_REL_CTF_COM_VerRegion_Result>();
@@ -23,6 +23,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public JsonResult ListLocalizaciones(int Reg_Id, int Ctf_Cod)
         {
             List<Svc_TGSC_REL_CTF_COM_VerComuna_Result> ListaComuna = new List<Svc_TGSC_REL_CTF_COM_VerComuna_Result>();
@@ -32,16 +33,6 @@ namespace Garantia_4.Controllers
             return Json(ListaComuna, JsonRequestBehavior.AllowGet);
 
         }
-        
-         protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
 
     }
 }
