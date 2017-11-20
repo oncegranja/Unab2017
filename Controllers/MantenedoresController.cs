@@ -20,7 +20,7 @@ namespace Garantia_4.Controllers
 
         // GET: Catastrofes
         [HandleError()]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public ActionResult MantenedorCTF()
         {
             return View();
