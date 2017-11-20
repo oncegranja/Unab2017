@@ -29,9 +29,9 @@ namespace Garantia_4.Controllers
             //}
             //catch
             //{                                                    //'OK - Fix by re-throwing the generic
-                return RedirectToAction("error", "home");       //      exception at the end of the catch block
+                //return RedirectToAction("error", "home");       //      exception at the end of the catch block
                 //throw;
-                throw new Exception("test");
+               // throw new Exception("test");
             //}
         }
 
@@ -45,7 +45,7 @@ namespace Garantia_4.Controllers
 
             return View();
             
-            throw new Exception("test");
+            //throw new Exception("test");
 
         }
 
@@ -58,7 +58,7 @@ namespace Garantia_4.Controllers
 
             return Json(Lista_CTF, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+           //throw new Exception("test");
  
         }
 
@@ -74,7 +74,7 @@ namespace Garantia_4.Controllers
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
             
-            throw new Exception("test");
+            //throw new Exception("test");
         }
 
         [HttpPost]
@@ -101,7 +101,7 @@ namespace Garantia_4.Controllers
 
                 return View(GuardaCtf);
                 
-                throw new Exception("test");
+                //throw new Exception("test");
 
         }
 
@@ -141,7 +141,7 @@ namespace Garantia_4.Controllers
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
             
-            throw new Exception("test");
+            //throw new Exception("test");
         }
 
         [HttpPost]
@@ -168,7 +168,7 @@ namespace Garantia_4.Controllers
 
             return View(GuardaCtf);
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -204,7 +204,7 @@ namespace Garantia_4.Controllers
 
             return View();
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -238,7 +238,7 @@ namespace Garantia_4.Controllers
             
             return View(tGSC_REL_CTF_COM);
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -269,7 +269,7 @@ namespace Garantia_4.Controllers
        
             return PartialView();
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
 
@@ -290,7 +290,7 @@ namespace Garantia_4.Controllers
 
             return PartialView();
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
             
 
@@ -315,7 +315,7 @@ namespace Garantia_4.Controllers
 
             return View();
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
 
@@ -341,7 +341,7 @@ namespace Garantia_4.Controllers
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
             
-            throw new Exception("test");
+            //throw new Exception("test");
         }
 
 
@@ -369,7 +369,7 @@ namespace Garantia_4.Controllers
 
             return View(_GuardaClaRie);
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -397,7 +397,7 @@ namespace Garantia_4.Controllers
 
             return Json(Lista_Sec_Eco, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
 
@@ -412,7 +412,7 @@ namespace Garantia_4.Controllers
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -441,7 +441,7 @@ namespace Garantia_4.Controllers
 
             return View(_GuardaSecEco);
             
-            throw new Exception("test");
+          //  throw new Exception("test");
         }
 
         // FIN SECTOR ECONOMICO
@@ -469,7 +469,7 @@ namespace Garantia_4.Controllers
 
             return Json(Lista_Gar, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -516,7 +516,7 @@ namespace Garantia_4.Controllers
 
             return View(_GuardaGarantia);
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
         // FIN GARANTIA
@@ -545,7 +545,7 @@ namespace Garantia_4.Controllers
 
             return Json(Lista_Seg, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -560,7 +560,7 @@ namespace Garantia_4.Controllers
             ViewBag.fechaingreso = DateTime.Now.ToString("yyyy/MM/dd");
             return PartialView();
             
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
@@ -590,7 +590,7 @@ namespace Garantia_4.Controllers
 
             return View(_GuardaGarantia);
             
-            throw new Exception("test");
+            //throw new Exception("test");
         }
 
 
@@ -620,7 +620,7 @@ namespace Garantia_4.Controllers
 
             return Json(Lista_Tip_Grc, JsonRequestBehavior.AllowGet);
             
-            throw new Exception("test");
+            //throw new Exception("test");
         }
 
 
@@ -662,7 +662,7 @@ namespace Garantia_4.Controllers
             }
 
             return View(_GuardaTipGra);
-            throw new Exception("test");
+           // throw new Exception("test");
         }
 
 
