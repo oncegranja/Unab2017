@@ -15,7 +15,8 @@ namespace Garantia_4.Controllers
     {
        // private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
 
-        
+        [HandleError()]
+
         [HttpGet]
         public JsonResult ListOperacion(string TipOpeCms)
         {
