@@ -24,7 +24,7 @@ namespace Garantia_4.Controllers
         [HttpGet]
         public ActionResult MantenedorCTF()
         {
-            return View("0");
+            return View();
         }
 
         [HttpGet]
