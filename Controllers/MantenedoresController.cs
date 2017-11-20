@@ -25,7 +25,8 @@ namespace Garantia_4.Controllers
         {
             return View();
         }
-
+        
+        [HttpGet]
         public ActionResult ListaCatastrofeLocalidad()
         {
 
@@ -38,7 +39,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public JsonResult ListaTipoCTFId(int Id_Ctf)
         {
 
