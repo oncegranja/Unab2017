@@ -168,7 +168,7 @@ namespace Garantia_4.Controllers
             return RedirectToAction("Verlistado");
         }
 
-        [HttpGet]
+        
         public ActionResult CargaInterfaces()
         {
 
