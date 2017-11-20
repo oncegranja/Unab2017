@@ -20,13 +20,13 @@ namespace Garantia_4.Controllers
 
         // GET: Catastrofes
         [HandleError()]
+
         [HttpGet]
         public ActionResult MantenedorCTF()
         {
             return View();
         }
-        
-        [HttpGet]
+
         public ActionResult ListaCatastrofeLocalidad()
         {
 
@@ -51,6 +51,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public ActionResult InsertaTipoCatastrofeLoc()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -93,7 +94,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult ListaTipoCatastrofe()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -105,6 +106,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public JsonResult ListaTipoCTF()
         {
 
@@ -115,6 +117,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public ActionResult InsertaTipoCatastrofe()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -157,6 +160,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public JsonResult ListaCatastrofes()
         {
 
@@ -169,6 +173,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public ActionResult AgregaCatastrofe()
         {
 
@@ -220,7 +225,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult EditaCatastrofe([Bind(Include = "Cod_Ctf, Cantidad_Ctf")] C_EditaCtf eDITACTF)
         {
             var CodCtf = eDITACTF.Cod_Ctf;
@@ -270,7 +275,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public JsonResult ListaComunas(int Reg_id)
         {
             List<Svc_TGSC_RGN_VerComunas_Result> ListaComuna = new List<Svc_TGSC_RGN_VerComunas_Result>();
@@ -280,6 +285,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public ActionResult ListaClasificacionRiesgo()
         {
 
@@ -293,7 +299,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public JsonResult ListaClaRie()
         {
             List<Svc_TGSC_CLA_RIE_VerClasificaRiesgo_02_Result> Lista_Cla_Rie = new List<Svc_TGSC_CLA_RIE_VerClasificaRiesgo_02_Result>();
@@ -303,7 +309,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult InsertaClasificacionRiesgo()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -348,7 +354,7 @@ namespace Garantia_4.Controllers
 
 
         // INICIO SECTOR ECONOMICO
-
+        [HttpGet]
         public ActionResult ListaSectorEconomico()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -360,7 +366,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public JsonResult ListaSecEco()
         {
 
@@ -372,6 +378,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public ActionResult InsertaSectorEconomico()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -417,7 +424,7 @@ namespace Garantia_4.Controllers
 
 
         // INICIO GARANTIA
-
+        [HttpGet]
         public ActionResult ListaGarantias()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -429,7 +436,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public JsonResult ListaGar()
         {
             List<Svc_TGSC_GAR_ADC_VerGarantia_02_Result> Lista_Gar = new List<Svc_TGSC_GAR_ADC_VerGarantia_02_Result>();
@@ -440,7 +447,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult InsertaGarantias()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -488,7 +495,7 @@ namespace Garantia_4.Controllers
 
 
         // INICIO SEGUROS
-
+        [HttpGet]
         public ActionResult ListaSeguros()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -500,7 +507,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public JsonResult ListaSeg()
         {
 
@@ -511,7 +518,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult InsertaSeguro()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -560,7 +567,7 @@ namespace Garantia_4.Controllers
 
 
         // INICIO TIPO DE GRACIA
-
+        [HttpGet]
         public ActionResult ListaTipoGracia()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
@@ -573,6 +580,7 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public JsonResult ListaTipGra()
         {
 
@@ -584,7 +592,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult InsertaTipoGracia()
         {
             if (Session["perfil"] == null || (int)Session["perfil"] == Constantes.digitoDos)
