@@ -17,8 +17,9 @@ namespace Garantia_4.Controllers
 {
     public class GeneraArchivosController : Controller
     {
-        // GET: Informes
         [HandleError()]
+
+        [HttpGet]
         public ActionResult Generacion()
         {
 
@@ -40,7 +41,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult CargaArchivos()
         {
             var acceso = Session["perfil"];
@@ -66,7 +67,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult ReporteCorfo()
         {
 
@@ -167,7 +168,7 @@ namespace Garantia_4.Controllers
             return RedirectToAction("Verlistado");
         }
 
-
+        [HttpGet]
         public ActionResult CargaInterfaces()
         {
 
@@ -248,6 +249,8 @@ namespace Garantia_4.Controllers
             return View();
         }
 
+
+        [HttpGet]
         public ActionResult ver_documentos(Int64 id_ifi)
         {
             var acceso = Session["perfil"];
