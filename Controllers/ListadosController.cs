@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -19,8 +19,10 @@ namespace Garantia_4.Controllers
     {
         private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
         // GET: Listados
-        
-        [HandleError()]            
+
+        [HandleError()]
+
+        [HttpGet]    
         public ActionResult VerListados()
         {
             var acceso = Session["perfil"];
@@ -41,6 +43,7 @@ namespace Garantia_4.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult VerListadosEtapa()
         {
             var acceso = Session["perfil"];
@@ -60,7 +63,7 @@ namespace Garantia_4.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public JsonResult ListSolicitudes(int estado)
         {
 
@@ -81,7 +84,7 @@ namespace Garantia_4.Controllers
             return Json(ListaSolicitudes, JsonRequestBehavior.AllowGet);
         }
 
-
+        [HttpGet]
         public JsonResult ListSolicitudesEtapa(int etapa)
         {
             var usr_lgn_pfl = "";
@@ -101,7 +104,7 @@ namespace Garantia_4.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult ExportAprobacion(int Sol_Id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
@@ -123,7 +126,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult ExportAnexo1(int Sol_Id)
         {
 
@@ -146,6 +149,7 @@ namespace Garantia_4.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult ExportAnexo2(int Sol_Id)
         {
 
@@ -167,7 +171,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult ExportDeclaracion(int Sol_Id)
         {
 
@@ -189,7 +193,7 @@ namespace Garantia_4.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult ExportCatastrofe(int Sol_Id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
@@ -214,8 +218,8 @@ namespace Garantia_4.Controllers
         {
             return View();
         }
-        
-                protected override void Dispose(bool disposing)
+
+        protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
@@ -223,5 +227,6 @@ namespace Garantia_4.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
