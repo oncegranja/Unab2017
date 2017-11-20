@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -13,10 +13,10 @@ namespace Garantia_4.Controllers
 {
     public class ParametrosController : Controller
     {
-        private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
+       // private DB_DESARROLLOEntities1 db = new DB_DESARROLLOEntities1();
 
-        // GET: Proyectos
-        [HandleError()]
+        
+        [HttpGet]
         public JsonResult ListOperacion(string TipOpeCms)
         {
             List<Svc_TGSC_TIP_OPE_VerOperacion_Result> ListaOperaciones = new List<Svc_TGSC_TIP_OPE_VerOperacion_Result>();
@@ -25,20 +25,22 @@ namespace Garantia_4.Controllers
         }
 
 
+        [HttpGet]
         public JsonResult ListTipMonto(int TipOpeId)
         {
             Svc_TGSC_TIP_OPE_VerOperacion_Id_Result ObtTipMonto = new Svc_TGSC_TIP_OPE_VerOperacion_Id_Result();
             ObtTipMonto = new ObtieneDesPyt().ObtieneTipoMonto(TipOpeId);
             return Json(ObtTipMonto, JsonRequestBehavior.AllowGet);
         }
-        
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }        
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
+
     }
 }
