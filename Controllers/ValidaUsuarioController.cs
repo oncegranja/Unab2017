@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,11 +15,11 @@ namespace Garantia_4.Controllers
     public class ValidaUsuarioController : Controller
     {
         // GET: ValidaUsuario
-        [HandleError()]
+        [HttpGet]
         public ActionResult Index(string login)
         {
 
-            //var usr_lgn = utlidades.NomUser(@User.Identity.Name);
+           
             Svc_TGSC_USR_SIS_VerUsuarioSistema_Result usuario = new Svc_TGSC_USR_SIS_VerUsuarioSistema_Result();
             usuario = new ObtieneUsuario().LeeUsuario(login);
 
