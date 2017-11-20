@@ -18,6 +18,7 @@ namespace Garantia_4.Controllers
 
         [HandleError()]
 
+
         [HttpGet]
         public JsonResult DatosClientes(string Sol_Nrt_Emp, string Sol_Drt_Emp)
         {
