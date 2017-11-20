@@ -27,6 +27,7 @@ namespace Garantia_4.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult ListaCatastrofeLocalidad()
         {
 
@@ -195,8 +196,7 @@ namespace Garantia_4.Controllers
         }
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpGet]
         public ActionResult AgregaCatastrofe_2([Bind(Include = "Com_Cod, Ctf_Cod")] TGSC_REL_CTF_COM tGSC_REL_CTF_COM)
         {
 
@@ -255,9 +255,7 @@ namespace Garantia_4.Controllers
         }
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-
+        [HttpGet]
         public ActionResult EditaCatastrofe2([Bind(Include = "Cod_Ctf")] C_EditaCtf eDITACTF)
         {
             var CodCtf = eDITACTF.Cod_Ctf;
