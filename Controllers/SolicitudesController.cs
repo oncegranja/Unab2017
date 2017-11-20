@@ -1,4 +1,4 @@
-    using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -345,11 +345,6 @@ namespace Garantia_4.Controllers
         }
 
 
-
-
-
-
-        [HttpGet]
         public ActionResult Edit(int id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
@@ -760,8 +755,6 @@ namespace Garantia_4.Controllers
         }
 
 
-
-        [HttpGet]
         public ActionResult CambiaEstado(int id)
         {
             Svc_TGSC_SOL_VerSolicitudId_Result Solicitud = new Svc_TGSC_SOL_VerSolicitudId_Result();
@@ -912,8 +905,6 @@ namespace Garantia_4.Controllers
 
 
 
-
-
         // POST: Solicitudes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -965,9 +956,7 @@ namespace Garantia_4.Controllers
             return PartialView();
         }
 
-
-
-        [HttpGet]
+        
         public ActionResult Busqueda(int id)
         {
 
@@ -1105,7 +1094,7 @@ namespace Garantia_4.Controllers
             return View(Solicitud);
         }
 
-        [HttpGet]
+        
         public ActionResult AbreSolicitud(int id)
         {
 
